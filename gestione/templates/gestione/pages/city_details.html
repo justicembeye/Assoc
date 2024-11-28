@@ -1,0 +1,38 @@
+{% extends 'gestione/layouts/base.html'%}
+
+{% block title %} City-Details {% endblock %}
+
+{% block content %}
+    <br><br>
+    <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col">
+                        <h4>
+                            {{city.name}}
+                        </h4>
+                    </div>
+                    <div class="col text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:cities' %}">Back</a></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <strong>Quartier associées :</strong>
+                <ul class="list-group list-group-flush">
+                    {% for district in districts %}
+                        <li class="list-group-item">{{ district.name }}</li>
+                    {% empty %}
+                        <li class="list-group-item">Aucun quartier associée à cette ville.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <br>
+        <a class="btn btn-danger" href="{% url 'gestione:delete_city' city.id %}">Delete</a>
+        <a class="btn btn-outline-warning" href="{% url 'gestione:update_city' city.id %}">Update</a>
+    </div>
+    <div class="col-md-3"></div>
+    </div>
+{% endblock %}

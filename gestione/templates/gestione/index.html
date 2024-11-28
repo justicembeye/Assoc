@@ -1,0 +1,103 @@
+{% extends 'gestione/layouts/base.html'%}
+
+{% block title %} Tableau de Bord - Administration {% endblock %}
+
+{% block content %}
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="bg-dark text-white vh-100 p-3" style="width: 250px;">
+            <h3>Administration</h3>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="{% url 'gestione:dashboard' %}" class="nav-link text-white">Tableau de Bord</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'gestione:members' %}" class="nav-link text-white">Membres</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'gestione:departments' %}" class="nav-link text-white">Départements</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'gestione:cities' %}" class="nav-link text-white">Villes</a>
+                </li>
+                <li class="nav-item">
+                  <a href="{% url 'gestione:districts' %}" class="nav-link text-white">Quartiers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'gestione:settings' %}" class="nav-link text-white">Paramètres</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'gestione:logout' %}" class="nav-link text-danger">Déconnexion</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container-fluid p-4" style="margin-left: 250px;">
+            <h1 class="mb-4">Tableau de Bord</h1>
+
+            <!-- Statistiques clés -->
+            <div class="row">
+              <div class="col-md-3">
+                  <div class="card bg-primary text-white mb-3">
+                      <div class="card-body">
+                          <h5 class="card-title">Total Membres</h5>
+                          <p class="card-text">500</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="card bg-success text-white mb-3">
+                      <div class="card-body">
+                          <h5 class="card-title">Total Départements</h5>
+                          <p class="card-text">12</p>
+                      </div>
+                  </div>
+            </div>
+              <div class="col-md-3">
+              <div class="card bg-warning text-white mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Total Villes</h5>
+                  <p class="card-text">50</p>
+                </div>
+              </div>
+            </div>
+              <div class="col-md-3">
+              <div class="card bg-danger text-white mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Total Quartiers</h5>
+                  <p class="card-text">120</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <!-- Graphiques -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                        <h5 class="card-title">Répartition par Département</h5>
+                        <p>Pour l'instant vide.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Répartition par Ville</h5>
+                            <p>Pour l'instant vide.</p>
+                        </div>
+                    </div>
+                </div>
+          </div>
+
+            <!-- Activités récentes -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Activités Récentes</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

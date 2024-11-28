@@ -1,0 +1,46 @@
+{% extends 'gestione/layouts/base.html'%}
+
+{% block title %} Members {% endblock %}
+
+{% block content %}
+    <h1>Members</h1>
+    <br>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col text-end">
+            <a class="btn btn-outline-dark" href="{% url 'gestione:add_member' %}">Add</a>
+        </div>
+    </div>
+    <table class="table table-borderless table-hover ">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">First name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone number</th>
+                <th scope="col">City</th>
+                <th scope="col">District</th>
+                <th scope="col">Created_at</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if members %}
+            {% for member in members %}
+                <tr>
+                <td>{{member.id}}</td>
+                <td><a href="{% url 'gestione:record' member.id %}">{{member.name}}</a></td>
+                <td>{{member.firstName}}</td>
+                <td>{{member.email}}</td>
+                <td>{{member.phone}}</td>
+                <td>{{member.city}}</td>
+                <td>{{member.district}}</td>
+                <td>{{member.created_at}}</td>
+                </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+    <a class="btn btn-outline-dark" href="{% url 'gestione:dashboard' %}">Back</a>
+    <br>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'gestione/layouts/base.html'%}
+
+{% block title %} District {% endblock %}
+
+{% block content %}
+    <div class="col-md-6 offset-md-3">
+        <h1>Add District</h1>
+        <br>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col text-end">
+                <a class="btn btn-outline-dark" href="{% url 'gestione:districts' %}">Back</a>
+            </div>
+        </div>
+        <br>
+        <form method="POST" action="{% url 'gestione:add_district' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-outline-dark">Add</button>
+        </form>
+    </div>
+{% endblock %}

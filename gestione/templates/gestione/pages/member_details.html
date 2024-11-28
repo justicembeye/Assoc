@@ -1,0 +1,37 @@
+{% extends 'gestione/layouts/base.html'%}
+
+{% block title %} Details {% endblock %}
+
+{% block content %}
+    <br><br>
+    <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col">
+                        <strong>
+                            {{member.name}}
+                            {{member.firstName}}
+                        </strong>
+                    </div>
+                    <div class="col text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:members' %}">Back</a></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-text"><strong>Email: </strong>{{member.email}}</p>
+                <p class="card-text"><strong>Tel: </strong>{{member.phone}}</p>
+                <p class="card-text"><strong>Ville: </strong>{{member.city}}</p>
+                <p class="card-text"><strong>Quartier: </strong>{{member.district}}</p>
+                <p class="card-text"><strong>Date de creation: </strong>{{member.created_at}}</p>
+                <p class="card-text"><strong>ID: </strong> {{member.id}}</p>
+            </div>
+        </div>
+        <br>
+        <a class="btn btn-danger" href="{% url 'gestione:delete_member' member.id %}">Delete</a>
+        <a class="btn btn-outline-warning" href="{% url 'gestione:update_member' member.id %}">Update</a>
+    </div>
+    <div class="col-md-3"></div>
+    </div>
+{% endblock %}

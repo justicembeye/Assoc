@@ -1,0 +1,58 @@
+{% extends 'gestione/layouts/base.html'%}
+
+{% block title %} District-Details {% endblock %}
+
+{% block content %}
+    <br><br>
+    <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col">
+                        <h4>
+                            {{district.name}}
+                        </h4>
+                    </div>
+                    <div class="col text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:districts' %}">Back</a></div>
+                </div>
+            </div>
+            <div class="card-body">
+                {% if members %}
+                 <table class="table table-sm table-hover ">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">First name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for member in members %}
+                            <tr>
+                            <td>{{ member.id }}</td>
+                            <td><a href="{% url 'gestione:member_record_by_district' member.id %}">{{member.name}}</a></td>
+                            <td>{{ member.firstName }}</td>
+                            <td>{{ member.email }}</td>
+                            <td>{{ member.phone}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="alert alert-warning" role="alert">
+                    Aucun Membre associée à ce quartier.
+                </div>
+            {% endif %}
+            </div>
+        </div>
+        <br>
+        <a class="btn btn-danger" href="{% url 'gestione:delete_district' district.id %}">Delete</a>
+        <a class="btn btn-outline-warning" href="{% url 'gestione:update_district' district.id %}">Update</a>
+    </div>
+    <div class="col-md-3"></div>
+    </div>
+{% endblock %}

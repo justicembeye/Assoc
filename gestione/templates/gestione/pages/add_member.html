@@ -1,0 +1,23 @@
+{% extends 'gestione/layouts/base.html'%}
+
+{% block title %} Details {% endblock %}
+
+{% block content %}
+    <div class="col-md-6 offset-md-3">
+        <h1>Add member</h1>
+        <br>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col text-end">
+                <a class="btn btn-outline-dark" href="{% url 'gestione:members' %}">Back</a>
+            </div>
+        </div>
+        <br>
+        <form method="POST" action="{% url 'gestione:add_member' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <button type="submit" class="btn btn-outline-dark">Add</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'gestione/layouts/base.html'%}
+
+{% block title %} Details {% endblock %}
+
+{% block content %}
+    <br><br>
+    <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col">
+                        <h4>
+                            {{department.name}}
+                        </h4>
+                    </div>
+                    <div class="col text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:departments' %}">Back</a></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <strong>Villes associées :</strong>
+                <ul class="list-group list-group-flush">
+                    {% for city in cities %}
+                        <li class="list-group-item">{{ city.name }}</li>
+                    {% empty %}
+                        <li class="list-group-item">Aucune ville associée à ce département.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <br>
+        <a class="btn btn-danger" href="{% url 'gestione:delete_department' department.id %}">Delete</a>
+        <a class="btn btn-outline-warning" href="{% url 'gestione:update_department' department.id %}">Update</a>
+    </div>
+    <div class="col-md-3"></div>
+    </div>
+{% endblock %}
