@@ -9,8 +9,15 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+import os
+from dotenv import load_dotenv
+
 
 from pathlib import Path
+
+import dj_database_url
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +30,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v=v^59v!-@4r&qaur&ibjiasxk0^-wf_&x#v$950i()u0v^qpy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.getenv('ENVIRONMENT') == 'development':
+    DEBUG = True
+else:
+    DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'fmc-beta.up.railway.app']
+
+CSRF_TRUSTED_ORIGINS = ['https://fmc-beta.up.railway.app']
+
+INSTALLED_IPS = (
+    '127.0.0.1',
+    'localhost:8000',
+)
 
 
 # Application definition
@@ -77,15 +94,15 @@ WSGI_APPLICATION = 'assoc.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'assoc',
-        'USER': 'postgres',
-        'PASSWORD': 'Crypto98@',
-        'HOST': 'localhost',  # ou l'adresse IP de votre serveur PostgreSQL
-        'PORT': '5432',       # Port par défaut de PostgreSQL
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
+ENVIRONMENT = os.getenv('ENVIRONMENT')
+POSTGRES_LOCALLY = False
+if ENVIRONMENT == 'production' or POSTGRES_LOCALLY:
+    DATABASES['default'] = dj_database_url.parse(os.getenv('DATABASE_URL'))
 
 
 # Password validation
