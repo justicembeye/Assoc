@@ -42,3 +42,5 @@ trove-classifiers==2023.9.19
 urllib3==2.2.2
 virtualenv==20.27.1
 zipp==3.19.1
+
+mysql-connector-python~=9.1.0

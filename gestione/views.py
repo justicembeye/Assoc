@@ -49,7 +49,7 @@ def register_user(request):
             user = authenticate(request, username=username, password=password)
             login(request, user)
             messages.success(request, 'Registrazione con successo !')
-            return redirect('gestione:home')
+            return redirect('gestione:login')
     else:
         form = SignUpForm()
         return render(request, 'gestione/pages/register.html', {'form': form})
