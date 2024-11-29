@@ -12,10 +12,10 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {% if not user.is_authenticated %}
            <li class="nav-item">
-                <a class="nav-link" href="{% url 'gestione:register' %}">Register</a>
+                <a class="nav-link" href="{% url 'gestione:register' %}">S'inscrire</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'gestione:login' %}">Login</a>
+                <a class="nav-link" href="{% url 'gestione:login' %}">Se connecter</a>
             </li>
         {% endif %}
       </ul>

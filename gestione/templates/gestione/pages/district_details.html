@@ -1,6 +1,6 @@
 {% extends 'gestione/layouts/base.html'%}
 
-{% block title %} District-Details {% endblock %}
+{% block title %} Quartier-détails {% endblock %}
 
 {% block content %}
     <br><br>
@@ -15,7 +15,7 @@
                             {{district.name}}
                         </h4>
                     </div>
-                    <div class="col text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:districts' %}">Back</a></div>
+                    <div class="col text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:districts' %}">Retour</a></div>
                 </div>
             </div>
             <div class="card-body">
@@ -24,10 +24,10 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">First name</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prénom</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Phone number</th>
+                            <th scope="col">Numéro de téléphone</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,8 +50,8 @@
             </div>
         </div>
         <br>
-        <a class="btn btn-danger" href="{% url 'gestione:delete_district' district.id %}">Delete</a>
-        <a class="btn btn-outline-warning" href="{% url 'gestione:update_district' district.id %}">Update</a>
+        <a class="btn btn-danger" href="{% url 'gestione:delete_district' district.id %}">Supprimer</a>
+        <a class="btn btn-outline-warning" href="{% url 'gestione:update_district' district.id %}">Modifier</a>
     </div>
     <div class="col-md-3"></div>
     </div>

@@ -6,8 +6,8 @@ from .models import Member, City, District, Department
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(label='', widget=forms.TextInput(attrs={'placeholder': 'Email', 'class': 'form-control'}))
-    first_name = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'First name', 'class': 'form-control'}))
-    last_name = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Last name', 'class': 'form-control'}))
+    first_name = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Prénom', 'class': 'form-control'}))
+    last_name = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'placeholder': 'Nom', 'class': 'form-control'}))
 
     class Meta:
         model = User
@@ -17,20 +17,20 @@ class SignUpForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs['class'] = 'form-control'
-        self.fields['username'].widget.attrs['placeholder'] = 'Username'
+        self.fields['username'].widget.attrs['placeholder'] = 'Nom d\'utilisateur.'
         self.fields['username'].label = ''
-        self.fields['username'].help_text = '<span class="form-text text-muted"><small>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small></span>'
+        self.fields['username'].help_text = '<span class="form-text text-muted"><small>Requis. 150 caractères maximum. Lettres, chiffres et les symboles @/./+/-/_ uniquement.</small></span>'
 
         self.fields['password1'].widget.attrs['class'] = 'form-control'
-        self.fields['password1'].widget.attrs['placeholder'] = 'Password'
+        self.fields['password1'].widget.attrs['placeholder'] = 'Mot de passe.'
         self.fields['password1'].label = ''
-        self.fields['password1'].help_text = '<ul class="form-text texte-muted small"><li>Your password can\'t be too similar your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can\'t be a commonly used password.</li><li>Your password can\'t be entirely numeric.</li></ul>'
+        self.fields['password1'].help_text = '<ul class="form-text texte-muted small"><li>Votre mot de passe ne peut pas être trop similaire à vos autres informations personnelles.</li><li>Votre mot de passe doit contenir au moins 8 caractères.</li><li>Votre mot de passe ne peut pas être un mot de passe couramment utilisé.</li><li>Votre mot de passe ne peut pas être entièrement numérique.</li></ul>'
 
         self.fields['password2'].widget.attrs['class'] = 'form-control'
-        self.fields['password2'].widget.attrs['placeholder'] = 'Comfirm password'
+        self.fields['password2'].widget.attrs['placeholder'] = 'Confirmer le mot de passe.'
         self.fields['password2'].label = ''
-        self.fields['password2'].widget.attrs.update({'placeholder': 'Confirm password', 'class': 'form-control'})
-        self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'
+        self.fields['password2'].widget.attrs.update({'placeholder': 'Confirmer le mot de passe', 'class': 'form-control'})
+        self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Entrez le même mot de passe qu\'auparavant, pour vérification.</small></span>'
 
 
 # Creation du formulaire d'ajout d'un membre
@@ -58,30 +58,30 @@ class AddMemberForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AddMemberForm, self).__init__(*args, **kwargs)
         self.fields['name'].widget.attrs['class'] = 'form-control'
-        self.fields['name'].widget.attrs['placeholder'] = 'name'
-        self.fields['name'].label = ''
+        self.fields['name'].widget.attrs['placeholder'] = ''
+        self.fields['name'].label = 'Nom:'
 
 
         self.fields['firstName'].widget.attrs['class'] = 'form-control'
-        self.fields['firstName'].widget.attrs['placeholder'] = 'First name'
-        self.fields['firstName'].label = ''
+        self.fields['firstName'].widget.attrs['placeholder'] = ''
+        self.fields['firstName'].label = 'Prénom:'
 
 
         self.fields['email'].widget.attrs['class'] = 'form-control'
-        self.fields['email'].widget.attrs['placeholder'] = 'Email'
-        self.fields['email'].label = ''
+        self.fields['email'].widget.attrs['placeholder'] = ''
+        self.fields['email'].label = 'Email:'
 
         self.fields['phone'].widget.attrs['class'] = 'form-control'
-        self.fields['phone'].widget.attrs['placeholder'] = 'Number phone'
-        self.fields['phone'].label = ''
+        self.fields['phone'].widget.attrs['placeholder'] = ''
+        self.fields['phone'].label = 'Numéro de téléphone:'
 
         self.fields['city'].widget.attrs['class'] = 'form-control'
-        self.fields['city'].widget.attrs['placeholder'] = 'City'
-        self.fields['city'].label = 'City'
+        self.fields['city'].widget.attrs['placeholder'] = ''
+        self.fields['city'].label = 'Ville'
 
         self.fields['district'].widget.attrs['class'] = 'form-control'
-        self.fields['district'].widget.attrs['placeholder'] = 'District'
-        self.fields['district'].label = 'District'
+        self.fields['district'].widget.attrs['placeholder'] = ''
+        self.fields['district'].label = 'Quartier'
 
 
 
@@ -96,7 +96,7 @@ class AddDepartmentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AddDepartmentForm, self).__init__(*args, **kwargs)
         self.fields['name'].widget.attrs['class'] = 'form-control'
-        self.fields['name'].widget.attrs['placeholder'] = 'name'
+        self.fields['name'].widget.attrs['placeholder'] = 'Nom du département.'
         self.fields['name'].label = ''
 
 
@@ -117,7 +117,7 @@ class AddCityForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AddCityForm, self).__init__(*args, **kwargs)
         self.fields['name'].widget.attrs['class'] = 'form-control'
-        self.fields['name'].widget.attrs['placeholder'] = 'name'
+        self.fields['name'].widget.attrs['placeholder'] = 'Nom de la ville.'
         self.fields['name'].label = ''
 
 
@@ -138,5 +138,5 @@ class AddDistrictForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AddDistrictForm, self).__init__(*args, **kwargs)
         self.fields['name'].widget.attrs['class'] = 'form-control'
-        self.fields['name'].widget.attrs['placeholder'] = 'name'
+        self.fields['name'].widget.attrs['placeholder'] = 'Nom du quartier.'
         self.fields['name'].label = ''

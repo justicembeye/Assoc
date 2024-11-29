@@ -1,15 +1,15 @@
 {% extends 'gestione/layouts/base.html'%}
 
-{% block title %} Details {% endblock %}
+{% block title %} Ajouter-menbre {% endblock %}
 
 {% block content %}
     <div class="col-md-6 offset-md-3">
-        <h1>Add member</h1>
+        <h1>Ajouter un membre</h1>
         <br>
         <div class="row">
             <div class="col"></div>
             <div class="col text-end">
-                <a class="btn btn-outline-dark" href="{% url 'gestione:members' %}">Back</a>
+                <a class="btn btn-outline-dark" href="{% url 'gestione:members' %}">Retour</a>
             </div>
         </div>
         <br>
@@ -17,7 +17,7 @@
             {% csrf_token %}
             {{ form.as_p }}
             <br>
-            <button type="submit" class="btn btn-outline-dark">Add</button>
+            <button type="submit" class="btn btn-outline-dark">Ajouter</button>
         </form>
     </div>
 {% endblock %}

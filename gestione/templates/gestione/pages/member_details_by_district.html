@@ -1,6 +1,6 @@
 {% extends 'gestione/layouts/base.html'%}
 
-{% block title %} Details {% endblock %}
+{% block title %} Membre-détails {% endblock %}
 
 {% block content %}
     <br><br>
@@ -16,12 +16,12 @@
                             {{member.firstName}}
                         </strong>
                     </div>
-                    <div class="col text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:district_record' district_id %}">Back</a></div>
+                    <div class="col text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:district_record' district_id %}">Retour</a></div>
                 </div>
             </div>
             <div class="card-body">
                 <p class="card-text"><strong>Email: </strong>{{member.email}}</p>
-                <p class="card-text"><strong>Tel: </strong>{{member.phone}}</p>
+                <p class="card-text"><strong>Numéro de téléphone: </strong>{{member.phone}}</p>
                 <p class="card-text"><strong>Ville: </strong>{{member.city}}</p>
                 <p class="card-text"><strong>Quartier: </strong>{{member.district}}</p>
                 <p class="card-text"><strong>Date de creation: </strong>{{member.created_at}}</p>
@@ -29,8 +29,8 @@
             </div>
         </div>
         <br>
-        <a class="btn btn-danger" href="{% url 'gestione:delete_member' member.id %}">Delete</a>
-        <a class="btn btn-outline-warning" href="{% url 'gestione:update_member' member.id %}">Update</a>
+        <a class="btn btn-danger" href="{% url 'gestione:delete_member' member.id %}">Supprimer</a>
+        <a class="btn btn-outline-warning" href="{% url 'gestione:update_member' member.id %}">Modifier</a>
     </div>
     <div class="col-md-3"></div>
     </div>

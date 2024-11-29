@@ -1,6 +1,6 @@
 {% extends 'gestione/layouts/base.html'%}
 
-{% block title %} Details {% endblock %}
+{% block title %} Département-détails {% endblock %}
 
 {% block content %}
     <br><br>
@@ -15,7 +15,7 @@
                             {{department.name}}
                         </h4>
                     </div>
-                    <div class="col text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:departments' %}">Back</a></div>
+                    <div class="col text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:departments' %}">Retour</a></div>
                 </div>
             </div>
             <div class="card-body">
@@ -30,8 +30,8 @@
             </div>
         </div>
         <br>
-        <a class="btn btn-danger" href="{% url 'gestione:delete_department' department.id %}">Delete</a>
-        <a class="btn btn-outline-warning" href="{% url 'gestione:update_department' department.id %}">Update</a>
+        <a class="btn btn-danger" href="{% url 'gestione:delete_department' department.id %}">Supprimer</a>
+        <a class="btn btn-outline-warning" href="{% url 'gestione:update_department' department.id %}">Modifier</a>
     </div>
     <div class="col-md-3"></div>
     </div>

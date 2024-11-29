@@ -1,17 +1,17 @@
 {% extends 'gestione/layouts/base.html'%}
 
-{% block title %} Register {% endblock %}
+{% block title %} S-enregistrer {% endblock %}
 
 {% block content %}
     <div class="col-md-6 offset-md-3">
-        <h1>FMC | Create Admin</h1>
+        <h1>FMC | Créer un administrateur</h1>
         <br>
         <form method="POST" action="">
             {% csrf_token %}
 
             {% if form.errors %}
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    Your form has Errors
+                    Votre formulaire contient des erreurs
                 {% for field in form %}
                     {% if field.errors %}
                         {{ field.errors }}
@@ -21,7 +21,7 @@
                 </div>
             {% endif %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-outline-dark">Register</button>
+            <button type="submit" class="btn btn-outline-dark">Enregistrer</button>
         </form>
     </div>
 

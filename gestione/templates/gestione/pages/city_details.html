@@ -1,6 +1,6 @@
 {% extends 'gestione/layouts/base.html'%}
 
-{% block title %} City-Details {% endblock %}
+{% block title %} Ville-détails {% endblock %}
 
 {% block content %}
     <br><br>
@@ -15,7 +15,7 @@
                             {{city.name}}
                         </h4>
                     </div>
-                    <div class="col text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:cities' %}">Back</a></div>
+                    <div class="col text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:cities' %}">Retour</a></div>
                 </div>
             </div>
             <div class="card-body">
@@ -30,8 +30,8 @@
             </div>
         </div>
         <br>
-        <a class="btn btn-danger" href="{% url 'gestione:delete_city' city.id %}">Delete</a>
-        <a class="btn btn-outline-warning" href="{% url 'gestione:update_city' city.id %}">Update</a>
+        <a class="btn btn-danger" href="{% url 'gestione:delete_city' city.id %}">Supprimer</a>
+        <a class="btn btn-outline-warning" href="{% url 'gestione:update_city' city.id %}">Modifier</a>
     </div>
     <div class="col-md-3"></div>
     </div>

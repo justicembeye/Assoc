@@ -1,19 +1,19 @@
 {% extends 'gestione/layouts/base.html'%}
 
-{% block title %} Cities {% endblock %}
+{% block title %} villes {% endblock %}
 
 {% block content %}
     <div class="container text-lg-start">
       <div class="row">
         <div class="col"></div>
         <div class="col-6">
-            <h1>Ville</h1>
+            <h1>Villes</h1>
                 <table class="table table-striped table-hover ">
                     <thead>
                         <tr>
-                            <th scope="col">Name</th>
+                            <th scope="col">Nom</th>
                             <th scope="col"></th>
-                            <th scope="col" class="text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:add_city' %}">Add</a></th>
+                            <th scope="col" class="text-end"><a class="btn btn-outline-dark" href="{% url 'gestione:add_city' %}">Ajouter</a></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -22,13 +22,13 @@
                             <tr>
                                 <td><a href="{% url 'gestione:city_record' city.id %}">{{city.name}}</a></td>
                                 <td></td>
-                                <td class="text-end"><a class="btn btn-danger" href="{% url 'gestione:delete_city' city.id %}">Delete</a></td>
+                                <td class="text-end"><a class="btn btn-danger" href="{% url 'gestione:delete_city' city.id %}">Supprimer</a></td>
                             </tr>
                         {% endfor %}
                         {% endif %}
                     </tbody>
                 </table>
-            <a class="btn btn-outline-dark" href="{% url 'gestione:dashboard' %}">Back</a>
+            <a class="btn btn-outline-dark" href="{% url 'gestione:dashboard' %}">Retour</a>
         </div>
         <div class="col"></div>
       </div>

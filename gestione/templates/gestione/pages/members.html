@@ -1,27 +1,27 @@
 {% extends 'gestione/layouts/base.html'%}
 
-{% block title %} Members {% endblock %}
+{% block title %} Membres {% endblock %}
 
 {% block content %}
-    <h1>Members</h1>
+    <h1>Membres</h1>
     <br>
     <div class="row">
         <div class="col"></div>
         <div class="col text-end">
-            <a class="btn btn-outline-dark" href="{% url 'gestione:add_member' %}">Add</a>
+            <a class="btn btn-outline-dark" href="{% url 'gestione:add_member' %}">Ajouter un membre</a>
         </div>
     </div>
     <table class="table table-borderless table-hover ">
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">First name</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
                 <th scope="col">Email</th>
-                <th scope="col">Phone number</th>
-                <th scope="col">City</th>
-                <th scope="col">District</th>
-                <th scope="col">Created_at</th>
+                <th scope="col">Numéro de téléphone</th>
+                <th scope="col">Ville</th>
+                <th scope="col">Quartier</th>
+                <th scope="col">Ajouté le</th>
             </tr>
         </thead>
         <tbody>
@@ -41,6 +41,6 @@
             {% endif %}
         </tbody>
     </table>
-    <a class="btn btn-outline-dark" href="{% url 'gestione:dashboard' %}">Back</a>
+    <a class="btn btn-outline-dark" href="{% url 'gestione:dashboard' %}">Retour</a>
     <br>
 {% endblock %}
